@@ -1,0 +1,36 @@
+<!-- include header -->
+<% include partials/header %>
+
+<div class="linkContainer" >
+  <a class="btnNav" href="http://localhost:3000/index/new">ADD A POST</a>
+</div>
+<section class="postHolder">
+<% posts.forEach(function(post){ %>
+  <div class="post">
+    <div class="post__imgCont">
+      <img src="<%= post.image %>" alt="<%= post.title %>" height="200" >
+    </div>
+    <div class="post__title">
+      <h1><%= post.title %></h1>
+    </div>
+    <div class="post__content">
+      <p><% let extract =  post.body.split('\.', 1) %> <%= extract %></p>
+    </div>
+    <div class="post__author">
+      <h2><%= post.author %></h2>
+    </div>
+    <div class="post__date">
+      <h3><% let dateStr =  post.created.toDateString() %><%= dateStr %></h3>
+    </div>
+    <div class="post__link">
+      <a class="btnNav" href="http://localhost:3000/index/<%= post._id %>">Read more...</a>
+    </div>
+  </div>
+
+<%})%>
+</section>
+
+
+
+<!-- include footer -->
+<% include partials/footer %>

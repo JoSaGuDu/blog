@@ -1,0 +1,15 @@
+{
+  "browser": "Firefox"
+}
+
+{
+  "no-browser": true
+}
+
+{
+  "entry-file": "index"
+}
+
+{
+  "root": "public"
+}

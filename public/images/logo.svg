@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="77px" viewBox="0 0 36 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-Portrait" transform="translate(-170.000000, -84.000000)">
+            <g id="Group" transform="translate(170.000000, 84.000000)">
+                <polygon id="Triangle" fill="#F41C88" transform="translate(18.000000, 47.800000) rotate(180.000000) translate(-18.000000, -47.800000) " points="18 19 36 76.6 0 76.6"></polygon>
+                <polygon id="Triangle" fill="#E9E5E4" transform="translate(17.960000, 32.880000) rotate(180.000000) translate(-17.960000, -32.880000) " points="17.96 12 30.92 53.76 5 53.76"></polygon>
+                <polygon id="Triangle" fill="#2FDDF1" transform="translate(17.800000, 18.000000) rotate(180.000000) translate(-17.800000, -18.000000) " points="17.8 0 28.6 36 7 36"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

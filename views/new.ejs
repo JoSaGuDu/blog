@@ -1,0 +1,26 @@
+<!-- include header -->
+<% include partials/header %>
+
+<section>
+  <h1 class="page--title">Add a Post</h1>
+  <div class="linkContainer">
+    <a class="btnNav" href="http://localhost:3000/index">Return to posts</a>
+  </div>
+
+  <div class="formContainer">
+      <h2 class="form--title" >Add a new post to the blog</h2>
+    <form action="/index" method="POST">
+      <!-- <label for="name">Name:</label> -->
+      <input class="form-input" type="text" name="post[title]" placeholder="Post title">
+      <!-- <label for="author">Author name:</label> -->
+      <input class="form-input" type="text" name="post[author]" placeholder="Author's name">
+      <!-- <label for="date">Date of publication:</label> -->
+      <input class="form-input" type="text" name="post[image]" placeholder="Post's image url">
+      <!-- <label for="description">Description:</label> -->
+      <textarea class="form-input" name="post[body]" placeholder="Add the post content here..."></textarea>
+      <input class="btnAction" type="submit" name="submit" value="Add this new post">
+    </form>
+  </div>
+</section>
+<!-- include footer -->
+<% include partials/footer %>

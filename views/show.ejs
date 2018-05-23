@@ -1,0 +1,25 @@
+<!-- include header -->
+<% include partials/header %>
+
+<section class="postShow">
+  <div class="linkContainer">
+    <a class="btnNav" href="http://localhost:3000/index">View all post</a>
+  </div>
+
+  <div class="post__content-show">
+    <h1 class="post__title-show"><%= post.title %></h1>
+    <div class="post__imgCont-show ">
+      <img class="post__img-show" src="<%= post.image %>" alt="<%= post.title %>" >
+    </div>
+    <div class="post__textCont-show">
+      <div class="post__textHeader-show">
+        <h2 class="post__author"><%= post.author %></h2>
+        <h3 class="post__date"><% let dateStr =  post.created.toDateString() %><%= dateStr %></h3>
+      </div>
+      <div class="post__body-show">
+        <p class="post__bodyText-show"><%= post.body %></p>
+      </div>
+    </div>
+</section>
+<!-- include footer -->
+<% include partials/footer %>
