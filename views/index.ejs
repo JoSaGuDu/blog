@@ -1,8 +1,9 @@
 <!-- include header -->
 <% include partials/header %>
-
-<div class="linkContainer" >
+<div class="actionsMenu">
+  <div class="linkContainer" >
   <a class="btnNav" href="http://localhost:3000/index/new">ADD A POST</a>
+</div>
 </div>
 <section class="postHolder">
 <% posts.forEach(function(post){ %>
@@ -14,13 +15,17 @@
       <h1><%= post.title %></h1>
     </div>
     <div class="post__content">
-      <p><% let extract =  post.body.split('\.', 1) %> <%= extract %></p>
+      <!--<p><% let extract =  post.body.split('\.', 1) %> <%= extract %></p>
+      the better way:-->
+      <p><%= post.body.substring(0, 100) %>...</p>
     </div>
     <div class="post__author">
       <h2><%= post.author %></h2>
     </div>
     <div class="post__date">
-      <h3><% let dateStr =  post.created.toDateString() %><%= dateStr %></h3>
+      <!--<h3><% let dateStr =  post.created.toDateString() %><%= dateStr %></h3>
+      the better way:-->
+      <h3><%=  post.created.toDateString() %></h3>
     </div>
     <div class="post__link">
       <a class="btnNav" href="http://localhost:3000/index/<%= post._id %>">Read more...</a>

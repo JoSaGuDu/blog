@@ -1,0 +1,34 @@
+<!-- include header -->
+<% include partials/header %>
+
+<section>
+  <h1 class="page--title">Edit a Post</h1>
+  <div class="actionsMenu">
+    <div class="linkContainer">
+      <a class="btnNav" href="http://localhost:3000/index">Return to posts</a>
+    </div>
+  </div>
+  <div class="formContainer">
+      <h2 class="form--title" >Modify and send the changes to edit the <%= post.title %> post</h2>
+    <form action="/index/<%= post._id %>?_method=PUT" method="POST">
+      <label for="post[title]">Post's title:</label>
+      <input class="form-input" type="text" value="<%= post.title %>" name="post[title]">
+      <label for="post[author]">Post's author name:</label>
+      <input class="form-input" type="text" value="<%= post.author %>" name="post[author]">
+      <label for="post[created]">Date of publication:</label>
+      <input class="form-input" type="text" value="<%= post.created.toString() %>" name="post[created]" disabled readonly>
+      <input class="form-input" type="hidden" value="<% Date.now() %>" name="post[edited]">
+      <p>Current image</p>
+      <div class="post__imgCont">
+        <img src="<%= post.image %>" alt="<%= post.title %>" height="200" >
+      </div>
+      <label for="post[image]">Current image url</label>
+      <input class="form-input" type="text" value="<%= post.image %>" name="post[image]">
+      <label for="post[body]">Post's content</label>
+      <textarea class="form-input" name="post[body]"><%= post.body %></textarea>
+      <input class="btnAction" type="submit" name="submit" value="Edit this post">
+    </form>
+  </div>
+</section>
+<!-- include footer -->
+<% include partials/footer %>

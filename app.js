@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 //Init express
 const app = express();
@@ -19,6 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Set view engine
 app.set('view engine', 'ejs');
 
+//Use method override
+app.use(methodOverride('_method'));
+
 //Connect mongoose
 mongoose.connect('mongodb://localhost/blog_app');
 
@@ -27,8 +31,9 @@ const blogSchema = new mongoose.Schema({
   title: String,
   image: String,
   body: String,
-  author: { type: String, default: 'Anonimus'},
-  created: { type: Date, default: Date.now() }
+  author: { type: String, default: 'Anonimus' },
+  created: { type: Date, default: Date.now() },
+  edited: { type: Date, default: Date.now() }
 });
 
 //Compile the Schema into a model
@@ -91,6 +96,43 @@ app.get('/index/:postId', function (req, res) {
       res.redirect('/index');
     } else {
       res.render('show', { post: foundPost });
+    }
+  });
+
+});
+
+//edit
+app.get('/index/:postId/edit', function (req, res) {
+  BlogPost.findById(req.params.postId, function (error, foundPost) {
+    if (error) {
+      console.log(error);
+      res.redirect(`/index/${req.params.postId}`);
+    } else {
+      res.render('edit', { post: foundPost });
+    }
+  });
+});
+
+//update
+app.put('/index/:postId', function (req, res) {
+  BlogPost.findByIdAndUpdate(req.params.postId, req.body.post, function (error, updatedPost) {
+    if (error) {
+      console.log(error);
+      res.redirect('/index');
+    } else {
+      res.redirect(`${req.params.postId}`);
+    }
+  });
+});
+
+//destroy
+app.delete('/index/:postId', function (req, res) {
+  BlogPost.findByIdAndRemove(req.params.postId, function (error) {
+    if (error) {
+      console.log(error);
+      res.redirect('/index');
+    } else {
+      res.redirect('/index');
     }
   });
 

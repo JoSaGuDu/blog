@@ -1,11 +1,10 @@
 <!-- include header -->
 <% include partials/header %>
 
-<section class="postShow">
+<section class="post-show">
   <div class="linkContainer">
-    <a class="btnNav" href="http://localhost:3000/index">View all post</a>
+    <a class="btnNav" href="http://localhost:3000/index">View all posts</a>
   </div>
-
   <div class="post__content-show">
     <h1 class="post__title-show"><%= post.title %></h1>
     <div class="post__imgCont-show ">
@@ -13,13 +12,31 @@
     </div>
     <div class="post__textCont-show">
       <div class="post__textHeader-show">
-        <h2 class="post__author"><%= post.author %></h2>
-        <h3 class="post__date"><% let dateStr =  post.created.toDateString() %><%= dateStr %></h3>
+        <h2 class="post__author">by <%= post.author %></h2>
+        <h3 class="post__date"><%= post.created.toDateString() %></h3>
       </div>
       <div class="post__body-show">
-        <p class="post__bodyText-show"><%= post.body %></p>
+        <p class="post__bodyText-show"><%- post.body %></p><!-- HTML friendly but unsafe!!! -->
       </div>
     </div>
+  </div>
+  <div class="actionsMenu">
+    <div class="actionContainer">
+      <div class="actionItem">
+        <form action="/index/<%= post._id %>?_method=DELETE" method="POST">
+         <input class="btnAction btnAction-danger" type="submit" name="submit" value="Delete">
+         <input type="hidden" name="post[id]" value="post._id">
+        </form>
+      </div>
+      <div class="actionItem">
+        <a href="/index/<%= post._id %>/edit">Edit</a>
+        <!-- <form action="/index/<%= post._id %>/edit" method="GET">
+         <input class="btnAction" type="submit" name="submit" value="Edit">
+         <input type="hidden" name="post[id]" value="post._id">
+        </form> -->
+      </div>
+    </div>
+  </div>
 </section>
 <!-- include footer -->
 <% include partials/footer %>

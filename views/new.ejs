@@ -3,20 +3,21 @@
 
 <section>
   <h1 class="page--title">Add a Post</h1>
-  <div class="linkContainer">
-    <a class="btnNav" href="http://localhost:3000/index">Return to posts</a>
+  <div class="actionsMenu">
+    <div class="linkContainer">
+    <a class="btnNav" href="http://localhost:3000/index">View all posts</a>
   </div>
-
+</div>
   <div class="formContainer">
       <h2 class="form--title" >Add a new post to the blog</h2>
     <form action="/index" method="POST">
-      <!-- <label for="name">Name:</label> -->
+      <label for="post[title]">Post's title:</label>
       <input class="form-input" type="text" name="post[title]" placeholder="Post title">
-      <!-- <label for="author">Author name:</label> -->
+      <label for="post[author]">Post's author name:</label>
       <input class="form-input" type="text" name="post[author]" placeholder="Author's name">
-      <!-- <label for="date">Date of publication:</label> -->
+      <label for="post[image]">Post's mage url</label>
       <input class="form-input" type="text" name="post[image]" placeholder="Post's image url">
-      <!-- <label for="description">Description:</label> -->
+      <label for="post[body]">Post's content</label>
       <textarea class="form-input" name="post[body]" placeholder="Add the post content here..."></textarea>
       <input class="btnAction" type="submit" name="submit" value="Add this new post">
     </form>
