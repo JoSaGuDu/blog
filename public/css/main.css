@@ -96,13 +96,13 @@ textarea{
   margin-top: 107px;
 }
 
-.nav--Container {
+.nav{
   display: flex;
   flex-direction: column;
   width: 33.3333333333%;
 }
 
-.nav {
+.nav__list {
   background-color: var(--accent-bg-color);
   display: none;
   list-style: none;
@@ -110,35 +110,36 @@ textarea{
   padding-left: 0;
 }
 
-.nav--Container:active, .nav--Container:hover .nav {
-  display: flex;
-  flex-direction: column;
+.nav:active, .nav:hover .nav__list {
+  display: block;
+  margin: 0 auto;
+  width: 83px;
 }
 
-.nav--Container a {
+.nav a {
   color: var(--neutre-color);
   margin-top: 8px;
   text-align: center;
 }
 
-.nav--Container:hover a{
+.nav:hover a{
   color: var(--dark-color);
 }
 
-.nav--item {
+.nav__item {
   padding: 10px 0;
   text-align: center;
 }
 
-.nav--item:first-of-type {
+.nav__item:first-of-type {
     margin-top: 11px
 }
 
-.nav--Container .nav--item a {
+.nav .nav__item a {
   color: var(--neutre-color);
 }
 
-.nav--item a:hover{
+.nav__item a:hover{
   color: var(--link-color);
 }
 
@@ -155,7 +156,7 @@ textarea{
   padding: 10px;
   width: 113px;
   text-align: center;
-  transition: All .6s ease-in-out .1s;
+  transition: All .3s ease-in-out .1s;
 }
 
 .linkContainer:hover{
@@ -191,7 +192,7 @@ textarea{
   padding: 5px;
   text-align: center;
   text-shadow: none;
-  transition: All .6s ease-in-out .1s;
+  transition: All .3s ease-in-out .1s;
 }
 
 .postHolder {
@@ -331,7 +332,7 @@ textarea{
   border-color: unset;
   color: white;
   margin-top: 15px;
-  transition: All .6s ease-in-out .1s;
+  transition: All .3s ease-in-out .1s;
   text-decoration: none;
 }
 
@@ -398,17 +399,37 @@ footer{
   body {
     background: url('/images/bg.svg') no-repeat center fixed;
   }
-  .container{
-    width: 80%;
+
+  .nav__list{
+    display: block;
+    margin-left: auto;
+    padding: 0 40px;
+    width: 206px
   }
 
-  .nav--Container a:first-child {
+  .nav {
+    flex-direction: row;
+  }
+
+  .nav__title {
     display: none;
   }
 
-  .nav, .nav--Container:active, .nav--Container:hover .nav {
-    display: flex;
-    justify-content: space-evenly;
+  .nav__item {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .nav:active, .nav:hover .nav__list {
+    display: block;
+    margin-right: 0;
+    width: 206px;
+  }
+
+  .container{
+    width: 80%;
   }
 
   .post__imgCont-show {

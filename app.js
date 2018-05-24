@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const sanitizer = require('express-sanitizer');
 
 //Init express
 const app = express();
@@ -22,6 +23,9 @@ app.set('view engine', 'ejs');
 
 //Use method override
 app.use(methodOverride('_method'));
+
+//Use sanitizer. THIS MUST BE AFTER bodyParser!!!
+app.use(sanitizer());
 
 //Connect mongoose
 mongoose.connect('mongodb://localhost/blog_app');
@@ -77,6 +81,7 @@ app.get('/index/new', function (req, res) {
 
 //create
 app.post('/index', function (req, res) {
+  req.body.post.body = req.sanitize(req.body.post.body);//sanitizing
   BlogPost.create(req.body.post, function (error, newllyPost) {
     if (error) {
       console.log(error);
@@ -115,6 +120,7 @@ app.get('/index/:postId/edit', function (req, res) {
 
 //update
 app.put('/index/:postId', function (req, res) {
+  req.body.post.body = req.sanitize(req.body.post.body);//sanitizing
   BlogPost.findByIdAndUpdate(req.params.postId, req.body.post, function (error, updatedPost) {
     if (error) {
       console.log(error);
